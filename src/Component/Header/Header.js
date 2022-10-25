@@ -1,7 +1,10 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid'
+import userEvent from '@testing-library/user-event';
+import { AuthContext } from '../../Context/AuthProvider';
 const Header = () => {
+    const {user} = useContext(AuthContext);
     const [open, setOpen] = useState(false);
     return (
         <div>
@@ -21,6 +24,10 @@ const Header = () => {
                         <li className='mr-8 text-yellow-600 '> <NavLink to={"/blog"}
                             className={({ isActive }) =>
                                 isActive ? "text-white" : undefined}>FAQ</NavLink></li>
+                        <li className='mr-8 text-yellow-600 '> <NavLink to={"/blog"}
+                            >{user.displayName}</NavLink></li>
+                        <li className='mr-8 text-yellow-600 '> <NavLink to={"/blog"}
+                            ><img className='w-[30px] rounded-full' src={user.photoURL} alt="" /></NavLink></li>
                     </ul>
                     <div onClick={() => setOpen(!open)} className='h-6 w-6 text-black-500 md:hidden ease-in'>
                         {

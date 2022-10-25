@@ -1,7 +1,21 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-
+import {  FaGithub, FaGoogle } from 'react-icons/fa';
+import { GoogleAuthProvider } from 'firebase/auth';
+import { AuthContext } from '../../Context/AuthProvider';
 const Login = () => {
+    const {providerLogin} = useContext(AuthContext);
+    const googleProvider = new GoogleAuthProvider();
+    const handleGoogleSignin = () =>{
+        providerLogin(googleProvider)
+        .then(result =>{
+            const user  = result.user;
+            console.log(user);
+        })
+        .catch(error=>{
+            console.log(error);
+        })
+    }
     return (
         <div>
             <div class="max-w-xs">
@@ -10,13 +24,13 @@ const Login = () => {
                         <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
                             Username
                         </label>
-                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Username"/>
+                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Username" name='email'/>
                     </div>
                     <div class="mb-6">
                         <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
                             Password
                         </label>
-                        <input class="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="******************"/>
+                        <input class="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="******************" name='password'/>
                             <p class="text-red-500 text-xs italic">Please choose a password.</p>
                     </div>
                     <div class="flex items-center flex-col">
@@ -28,7 +42,9 @@ const Login = () => {
                         </Link>
                     </div>
                 </form>
-                <p class="text-center text-yellow-700 text-xs">
+                <button onClick={handleGoogleSignin} className='btn bg-white text-black w-full mb-3'><FaGoogle className='text-black mr-1'/>  Sign in with google</button>
+                <button className='btn bg-gray text-white w-full mb-3'><FaGithub className='text-white mr-1 ' />  Sign in with gitHub</button>
+                <p class="text-center  text-yellow-700 text-xs">
                     &copy;2020 Acme Corp. All rights reserved.
                 </p>
             </div>
