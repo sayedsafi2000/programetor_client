@@ -20,7 +20,7 @@ const Login = () => {
                             <p class="text-red-500 text-xs italic">Please choose a password.</p>
                     </div>
                     <div class="flex items-center flex-col">
-                        <button class=" block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+                        <button class=" block btn-primary text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
                             Sign In
                         </button>
                         <Link class="block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800 mt-3" href="#">
@@ -28,7 +28,7 @@ const Login = () => {
                         </Link>
                     </div>
                 </form>
-                <p class="text-center text-gray-500 text-xs">
+                <p class="text-center text-yellow-700 text-xs">
                     &copy;2020 Acme Corp. All rights reserved.
                 </p>
             </div>

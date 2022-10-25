@@ -7,24 +7,24 @@ const Header = () => {
         <div>
             <div className="flex justify-between mx-auto p-4 shadow-lg">
                 <div className="flex">
-                    <img src='logo.png' alt='logo'/>
-                    <NavLink to={"/"}><h2 className='text-3xl text-indigo-800 font-bold'>Programetor</h2></NavLink>
+                    <img className='w-[60px]' src='logo.png' alt='logo'/>
+                    <NavLink to={"/"}><h2 className=' text-yellow-600 text-3xl font-bold'>Programetor</h2></NavLink>
                 </div>
                 <div>
                     <ul className={` lg:flex sm:block justify-end list-none lg:static duration-300 ease-in absolute  ${open ? "top-[70px] right-[0px]" : "top-[-150px] right-[0px]"}`}>
-                        <li className='mr-8 mb-3 '> <NavLink to={"/course"}
+                        <li className='mr-8 mb-3  text-yellow-600 '> <NavLink to={"/course"}
                             className={({ isActive }) =>
-                                isActive ? "text-[#5025D4]" : undefined}>Course</NavLink></li>
-                        <li className='mr-8'> <NavLink to={"/blog"}
+                                isActive ? "text-white" : undefined}>Course</NavLink></li>
+                        <li className='mr-8 text-yellow-600 '> <NavLink to={"/blog"}
                             className={({ isActive }) =>
-                                isActive ? "text-[#5025D4]" : undefined}>Blog</NavLink></li>
-                        <li className='mr-8'> <NavLink to={"/blog"}
+                                isActive ? "text-white" : undefined}>Blog</NavLink></li>
+                        <li className='mr-8 text-yellow-600 '> <NavLink to={"/blog"}
                             className={({ isActive }) =>
-                                isActive ? "text-[#5025D4]" : undefined}>FAQ</NavLink></li>
+                                isActive ? "text-white" : undefined}>FAQ</NavLink></li>
                     </ul>
                     <div onClick={() => setOpen(!open)} className='h-6 w-6 text-black-500 md:hidden ease-in'>
                         {
-                            open ? <XMarkIcon /> : <Bars3Icon />
+                            open ? <XMarkIcon className='text-yellow-500'/> : <Bars3Icon className='text-yellow-500'/>
                         }
                     </div>
                 </div>
