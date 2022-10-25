@@ -12,7 +12,7 @@ const Header = () => {
                 </div>
                 <div>
                     <ul className={` lg:flex sm:block justify-end list-none lg:static duration-300 ease-in absolute  ${open ? "top-[70px] right-[0px]" : "top-[-150px] right-[0px]"}`}>
-                        <li className='mr-8 mb-3 '> <NavLink to={"/home"}
+                        <li className='mr-8 mb-3 '> <NavLink to={"/course"}
                             className={({ isActive }) =>
                                 isActive ? "text-[#5025D4]" : undefined}>Course</NavLink></li>
                         <li className='mr-8'> <NavLink to={"/blog"}
