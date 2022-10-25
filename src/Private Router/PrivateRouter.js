@@ -7,7 +7,7 @@ const PrivateRouter = ({children}) => {
 
    const location = useLocation();
    if(loading){
-      
+      return <progress className="progress progress-warning w-56 mt-36" value="70" max="100"></progress>
    }
 
 

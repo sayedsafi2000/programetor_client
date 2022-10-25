@@ -4,6 +4,7 @@ import { FaGithub, FaGoogle } from 'react-icons/fa';
 import { GoogleAuthProvider } from 'firebase/auth';
 import { AuthContext } from '../../Context/AuthProvider';
 import { toast } from 'react-toastify';
+import { Toaster } from 'react-hot-toast';
 const Login = () => {
     const navigate = useNavigate();
     const { providerLogin,signIn } = useContext(AuthContext);
@@ -19,6 +20,7 @@ const Login = () => {
             })
             .catch(error => {
                 console.log(error);
+                toast.error(error.message)
             })
     }
     const handleLoginSubmit = (event)=>{
@@ -37,11 +39,12 @@ const Login = () => {
         .catch(error=>{
             console.log(error)
             toast(error)
+            toast.error(error.message)
         })
     }
     return (
         <div>
-            <div className="max-w-xs z-10 mx-auto h-[100vh] mt-36">
+            <div className="max-w-xs  mx-auto mt-36">
                 <form onSubmit={handleLoginSubmit} className=" shadow-md rounded px-8 pt-6 pb-8 mb-4 glass ">
                     <div className="mb-4">
                         <label className="block text-white text-sm font-bold mb-2" htmlFor="username">
@@ -57,7 +60,7 @@ const Login = () => {
                         <p className="text-red-500 text-xs italic">Please choose a password.</p>
                     </div>
                     <div className="flex items-center flex-col">
-                        <button  className=" block btn-primary text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+                        <button  className=" block btn-primary hover:btn-warning text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
                            Log In
                         </button>
                         <Link to="/register" className="block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800 mt-3" >
