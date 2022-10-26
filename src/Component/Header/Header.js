@@ -18,7 +18,7 @@ const Header = () => {
         <div>
             <div className="flex justify-between mx-auto p-4 shadow-lg">
                 <div className="flex">
-                    <img className='w-[60px]' src='logo.png' alt='logo' />
+                    <img className='w-[60px]' src="https://i.ibb.co/4f4J3Pb/logo.png" alt='logo' />
                     <NavLink to={"/"}><h2 className=' text-yellow-600 text-3xl font-bold'>Programetor</h2></NavLink>
                 </div>
                 <div className=''>

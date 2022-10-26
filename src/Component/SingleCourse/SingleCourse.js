@@ -5,11 +5,12 @@ const SingleCourse = () => {
     const singleCourse = useLoaderData();
     // console.log(singleCourse)
     return (
-        <div className="max-w-sm rounded overflow-hidden shadow-lg mx-auto">
+        <div className="max-w-sm rounded-md overflow-hidden glass shadow-lg mx-auto">
             <img className="w-full" src={singleCourse.image_url} alt="Sunset in the mountains"/>
                 <div className="px-6 py-4 ">
+                    <h2 className='font-bold text-md mb-2 text-white'>Course name : {singleCourse.name}</h2>
                     <div className="font-bold text-xl mb-2 text-white">{singleCourse.title}</div>
-                    <p className=" text-white">
+                    <p className=" text-white text-justify">
                         {singleCourse.details}
                     </p>
                 </div>
