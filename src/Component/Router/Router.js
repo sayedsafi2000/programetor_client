@@ -1,5 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom';
 import PrivateRouter from '../../Private Router/PrivateRouter';
+import Blog from '../Blog/Blog';
 import CheckOut from '../CheckOut/CheckOut';
 import Courses from '../Course/Courses';
 import Error404 from '../ErrorHandle/Error404';
@@ -52,6 +53,10 @@ export const router = createBrowserRouter([
                 element:<Register></Register>,
                 errorElement:<Error404></Error404>,
             },
+            {
+                path:"/blog",
+                element:<Blog></Blog>
+            }
         ]
     },
 ])

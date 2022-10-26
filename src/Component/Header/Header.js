@@ -29,7 +29,7 @@ const Header = () => {
                         <li className='mr-8 text-yellow-600 '> <NavLink to={"/blog"}
                             className={({ isActive }) =>
                                 isActive ? "text-white" : undefined}>Blog</NavLink></li>
-                        <li className='mr-8 text-yellow-600 '> <NavLink to={"/blog"}
+                        <li className='mr-8 text-yellow-600 '> <NavLink to={"/faq"}
                             className={({ isActive }) =>
                                 isActive ? "text-white " : undefined}>FAQ</NavLink></li>
 
@@ -49,8 +49,8 @@ const Header = () => {
                                 <div className="dropdown dropdown-hover">
                                     <li tabIndex={0} className="relative">
                                         <img className='w-[30px] h-[30px] mx-auto rounded-[50%]' src={user?.photoURL} alt="" />
-                                        <ul tabIndex={0} className="z-10 w-1/2 dropdown-content menu shadow rounded-box absolute top-[50px] right-[150px]">
-                                            <Link className='text-yellow-600'>{user.displayName}</Link>
+                                        <ul tabIndex={0} className="z-10 w-1/2 dropdown-content menu shadow rounded-box absolute top-[50px] right-[50px]">
+                                            <Link className='text-white font-bold'>{user.displayName}</Link>
                                         </ul>
                                     </li>
                                 </div>

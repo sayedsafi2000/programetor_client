@@ -10,15 +10,15 @@ const SingleCourse = () => {
         <div ref={ref} className="max-w-sm rounded-md overflow-hidden glass shadow-lg mx-auto p-5">
             <img className="w-full" src={singleCourse.image_url} alt="Sunset in the mountains" />
             <div className="px-6 py-4 ">
-                <h2 className='font-bold text-md mb-2 text-yellow-500'>Course name : {singleCourse.name}
+                <h2 className='font-bold text-md mb-2 text-yellow-600'>Course name : {singleCourse.name}
                     <span className='m-3'>
                         <Pdf targetRef={ref} filename="code-example.pdf">
                             {({ toPdf }) => <button onClick={toPdf}><FaDownload className='white ' /></button>}
                         </Pdf>
                     </span>
                 </h2>
-                <div className="font-bold text-xl mb-2 text-yellow-500">{singleCourse.title}</div>
-                <p className=" text-yellow-500 text-justify">
+                <div className="font-bold text-xl mb-2 text-yellow-600">{singleCourse.title}</div>
+                <p className=" text-yellow-600 text-justify">
                     {singleCourse.details}
                 </p>
             </div>

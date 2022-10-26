@@ -29,8 +29,8 @@ const CheckOut = () => {
                 <div className="card w-full bg-base-100 shadow-xl image-full">
                     <figure><img src={checkout.image_url} alt="Shoes" /></figure>
                     <div className="card-body text-center mx-auto">
-                        <h2 className='text-yellow-500 font-bold text-lg'>Product id : {checkout.id}</h2>
-                        <p className='text-yellow-500 font-bold text-lg'>{user.displayName}</p>
+                        <h2 className='text-gray-900 font-bold text-lg  glass'>Product id : {checkout.id}</h2>
+                        <p className='text-gray-900 font-bold text-lg  glass'>User Name:{user.displayName}</p>
                         <img className="w-[100px] h-[100px] rounded-full mx-auto" src={user.photoURL} alt="Sunset in the mountains" />
                         <div className="card-actions flex justify-end items-center">
                             <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-black text-sm font-semibold  mr-2 mb-2">Price : {checkout.price}</span>
