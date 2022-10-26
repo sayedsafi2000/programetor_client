@@ -8,7 +8,7 @@ Below is a brief description of what was required to build this website.
 6/ Used firebase authentication system (google,github and email pass login)
 7/ Used private route for premium access page.
 8/ use .evn.local for secure firebase config
-That's a simple summery of my website....
+That's a simple summary of my website....
 
 Server Site Private GitHub link : https://github.com/programming-hero-web-course1/b610-lerning-platform-server-side-sayedsafi2000
 

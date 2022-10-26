@@ -4,9 +4,11 @@ import Blog from '../Blog/Blog';
 import CheckOut from '../CheckOut/CheckOut';
 import Courses from '../Course/Courses';
 import Error404 from '../ErrorHandle/Error404';
+import FAQ from '../FAQ/FAQ';
 import Home from '../Hero/Home';
 import Login from '../Login/Login';
 import Main from '../Main/Main';
+import Profile from '../Profile/Profile';
 import Purchase from '../Purchase/Purchase';
 import Register from '../Register/Register';
 import SingleCourse from '../SingleCourse/SingleCourse';
@@ -54,8 +56,17 @@ export const router = createBrowserRouter([
                 errorElement:<Error404></Error404>,
             },
             {
+                path:"/profile",
+                element:<Profile></Profile>,
+                errorElement:<Error404></Error404>,
+            },
+            {
                 path:"/blog",
                 element:<Blog></Blog>
+            },
+            {
+                path:"/faq",
+                element:<FAQ></FAQ>
             }
         ]
     },

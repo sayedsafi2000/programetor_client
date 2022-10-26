@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
-        <div>
+        <div className='bg-gray-600'>
             <footer className="footer p-10 bg-gray-600 text-base-content">
                 <div>
                     <span className="footer-title text-white">Services</span>
@@ -28,6 +28,9 @@ const Footer = () => {
                     </div>
                 </div>
             </footer>
+                <p className="text-center py-5 text-yellow-600 text-xs">
+                    &copy;2020 programetor. All rights reserved.
+                </p>
         </div>
     );
 };

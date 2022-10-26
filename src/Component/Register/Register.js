@@ -1,4 +1,4 @@
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
@@ -6,8 +6,9 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
 
 const Register = () => {
-    const { providerLogin, createUser,updateUserProfile } = useContext(AuthContext);
+    const { providerLogin, createUser, updateUserProfile,gitProviderLogin } = useContext(AuthContext);
     const googleProvider = new GoogleAuthProvider();
+    const gitHubProvider = new GithubAuthProvider();
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || "/course";
@@ -24,8 +25,8 @@ const Register = () => {
                 const user = result.user;
                 console.log(user)
                 form.reset();
-                updateUserProfileHAndle(name,photoURL);
-                navigate(from,{replace:true});
+                updateUserProfileHAndle(name, photoURL);
+                navigate(from, { replace: true });
                 toast.success("User Create Successfully")
             })
             .catch(error => {
@@ -34,20 +35,32 @@ const Register = () => {
             })
     }
 
-    const updateUserProfileHAndle = (name,photoURL)=>{
-        const profile = {displayName : name,photoURL:photoURL}
+    const updateUserProfileHAndle = (name, photoURL) => {
+        const profile = { displayName: name, photoURL: photoURL }
         updateUserProfile(profile)
-        .then(()=>{})
-        .catch(error=>{
-            console.log(error)
-        })
+            .then(() => { })
+            .catch(error => {
+                console.log(error)
+            })
     }
     const handleGoogleSignin = () => {
         providerLogin(googleProvider)
             .then(result => {
                 const user = result.user;
                 console.log(user);
-                navigate(from,{replace:true});
+                navigate(from, { replace: true });
+            })
+            .catch(error => {
+                console.log(error);
+                toast.error(error.message)
+            })
+    }
+    const handleGitHubSignin = () => {
+        gitProviderLogin(gitHubProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                navigate(from, { replace: true });
             })
             .catch(error => {
                 console.log(error);
@@ -70,7 +83,7 @@ const Register = () => {
                         <label className="block text-white text-sm font-bold mb-2" htmlFor="photoURL">
                             photoURL
                         </label>
-                        <input className="shadow appearance-none border rounded w-full py-2 px-3 text-black leading-tight focus:outline-none focus:shadow-outline" id="photoURL" name='photoURL' type="text" placeholder='Enter your photo Url'/>
+                        <input className="shadow appearance-none border rounded w-full py-2 px-3 text-black leading-tight focus:outline-none focus:shadow-outline" id="photoURL" name='photoURL' type="text" placeholder='Enter your photo Url' />
                     </div>
 
                     <div className="mb-4">
@@ -84,7 +97,6 @@ const Register = () => {
                             Password
                         </label>
                         <input className="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-black mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="************" name='password' />
-                        <p className="text-red-500 text-xs italic">Please choose a password.</p>
                     </div>
                     <div className="flex items-center flex-col">
                         <button className=" block btn-primary hover:btn-warning text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
@@ -96,10 +108,7 @@ const Register = () => {
                     </div>
                 </form>
                 <button onClick={handleGoogleSignin} className='btn glass text-white w-full mb-3'><FaGoogle className='text-white mr-1' />  Sign in with google</button>
-                <button className='btn bg-gray text-white w-full mb-3'><FaGithub className='text-white mr-1 ' />  Sign in with gitHub</button>
-                <p className="text-center  text-yellow-700 text-xs">
-                    &copy;2020 Acme Corp. All rights reserved.
-                </p>
+                <button onClick={handleGitHubSignin} className='btn bg-gray text-white w-full mb-3'><FaGithub className='text-white mr-1 ' />  Sign in with gitHub</button>
             </div>
         </div>
     );

@@ -20,7 +20,7 @@ const Header = () => {
                     <img className='w-[50px]' src="https://i.ibb.co/4f4J3Pb/logo.png" alt='logo' />
                     <NavLink to={"/"}><h2 className=' text-yellow-600 lg:text-3xl font-bold'>Programetor</h2></NavLink>
                 </div>
-                    <li className='flex align-middle mr-3 mt-1 lg:mt-3'><span className=' mr-0 text-yellow-700 font-bold'>dark</span><input type="checkbox" className="toggle  lg:toggle-md md:toggle-xs ml-5" /><span className='ml-3 text-white font-bold '>light</span></li>
+                <li className='flex align-middle mr-3 mt-1 lg:mt-3'><span className=' mr-0 text-yellow-700 font-bold'>dark</span><input type="checkbox" className="toggle  lg:toggle-md md:toggle-xs ml-5" /><span className='ml-3 text-white font-bold '>light</span></li>
                 <div className=''>
                     <ul className={`z-10 rounded-md px-5 py-3 glass lg:flex sm:block justify-end items-center list-none lg:static duration-300 ease-in-out absolute  ${open ? "top-[70px] right-[00px] px-5 w-full" : "top-[-200px] right-[0px] w-full"}`}>
                         <li className='mr-8  text-yellow-600 '> <NavLink to={"/course"}
@@ -47,12 +47,14 @@ const Header = () => {
                         {
                             user?.photoURL ?
                                 <div className="dropdown dropdown-hover">
-                                    <li tabIndex={0} className="relative">
-                                        <img className='w-[30px] h-[30px] mx-auto rounded-[50%]' src={user?.photoURL} alt="" />
-                                        <ul tabIndex={0} className="z-10 w-1/2 dropdown-content menu shadow rounded-box absolute top-[50px] right-[50px]">
-                                            <Link className='text-white font-bold'>{user.displayName}</Link>
-                                        </ul>
-                                    </li>
+                                    <Link to="/profile">
+                                        <li tabIndex={0} className="relative">
+                                            <img className='w-[30px] h-[30px] mx-auto rounded-[50%]' src={user?.photoURL} alt="userPhoto" />
+                                            <ul tabIndex={0} className="z-10 w-1/2 dropdown-content menu shadow rounded-box absolute top-[50px] right-[50px]">
+                                                <Link className='text-white font-bold'>{user.displayName}</Link>
+                                            </ul>
+                                        </li>
+                                    </Link>
                                 </div>
                                 :
                                 <li><FaUser className=' text-yellow-600'></FaUser></li>
