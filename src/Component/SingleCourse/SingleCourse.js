@@ -7,7 +7,7 @@ const SingleCourse = () => {
     const singleCourse = useLoaderData();
     // console.log(singleCourse)
     return (
-        <div ref={ref} className="max-w-sm rounded-md overflow-hidden glass shadow-lg mx-auto">
+        <div ref={ref} className="max-w-sm rounded-md overflow-hidden glass shadow-lg mx-auto p-5">
             <img className="w-full" src={singleCourse.image_url} alt="Sunset in the mountains" />
             <div className="px-6 py-4 ">
                 <h2 className='font-bold text-md mb-2 text-yellow-500'>Course name : {singleCourse.name}
