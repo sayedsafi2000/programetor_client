@@ -23,17 +23,17 @@ export const router = createBrowserRouter([
                 path:"/course",
                 element:<Courses></Courses>,
                 errorElement:<Error404></Error404>,
-                loader:()=>fetch("http://localhost:5000/course")
+                loader:()=>fetch("https://assignment10-server-sayedsafi2000.vercel.app/course")
             },
             {
                 path:"/course/:id",
                 element:<SingleCourse></SingleCourse>,
                 errorElement:<Error404></Error404>,
-                loader:({params})=>fetch(`http://localhost:5000/course/${params.id}`)
+                loader:({params})=>fetch(`https://assignment10-server-sayedsafi2000.vercel.app/course/${params.id}`)
             },
             {
                 path:"/checkout/:id",
-                loader: ({params})=> fetch(`http://localhost:5000/course/${params.id}`),
+                loader: ({params})=> fetch(`https://assignment10-server-sayedsafi2000.vercel.app/course/${params.id}`),
                 element:<PrivateRouter><CheckOut></CheckOut></PrivateRouter>,
                 errorElement:<Error404></Error404>,
             },
