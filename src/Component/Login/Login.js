@@ -3,8 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
 import { GoogleAuthProvider } from 'firebase/auth';
 import { AuthContext } from '../../Context/AuthProvider';
-import { toast } from 'react-toastify';
-import { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 const Login = () => {
     const navigate = useNavigate();
     const { providerLogin,signIn } = useContext(AuthContext);
@@ -37,8 +36,6 @@ const Login = () => {
             navigate(from,{replace:true});
         })
         .catch(error=>{
-            console.log(error)
-            toast(error)
             toast.error(error.message)
         })
     }
